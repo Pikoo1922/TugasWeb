@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Combinator Selector</title>
+    <style>
+        /* no 1: Descendant Selector (Spasi) */
+        /* Menargetkan SEMUA <p> yang berada di dalam <div> */
+        div p {
+            color: red;
+        }
+
+        /* no 2: Child Selector (>) */
+        /* Menargetkan <p> yang merupakan anak LANGSUNG dari <div> */
+        div > p {
+            background-color: yellow;
+        }
+
+        /* no 3: Adjacent Sibling Selector (+) */
+        /* Menargetkan <p> yang tepat berada SETELAH elemen <div> */
+        div + p {
+            background-color: darkgray;
+        }
+
+        /* no 4: General Sibling Selector (~) */
+        /* Menargetkan SEMUA <p> yang merupakan saudara (setelah) <div> */
+        div ~ p {
+            color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <p>Paragraf 1: Terkena selektor no 1 (merah) dan no 2 (bg kuning) karena merupakan anak dalam div.</p>
+        <p>Paragraf 2: Terkena selektor no 1 (merah) dan no 2 (bg kuning) karena juga anak dalam div.</p>
+    </div>
+
+    <p>Paragraf 3: Terkena selektor no 3 (bg abu-abu) karena tepat setelah div, dan no 4 (cyan) sebagai saudara.</p>
+    <p>Paragraf 4: Terkena selektor no 4 (cyan) karena merupakan saudara dari div (tapi bukan yang pertama setelahnya).</p>
+
+</body>
+</html>

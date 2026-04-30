@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Dialog jQuery UI</title>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; padding: 50px; text-align: center; }
+        .ui-dialog-titlebar-close { display: none; } /* Opsional: Sembunyikan tombol X bawaan */
+    </style>
+</head>
+<body>
+
+    <h2>Contoh Basic Dialog</h2>
+    <p>Klik tombol di bawah untuk menampilkan pesan.</p>
+    
+    <button id="buka-dialog">Buka Jendela Dialog</button>
+
+    <div id="kotak-dialog" title="Konfirmasi Sistem">
+        <p>Ini adalah tampilan jendela <b>Basic Dialog</b> menggunakan jQuery UI. Anda bisa memasukkan informasi apa pun di sini.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Inisialisasi Dialog
+            $("#kotak-dialog").dialog({
+                autoOpen: false, // Dialog tidak langsung muncul saat page load
+                modal: true,     // Membuat latar belakang tidak bisa diklik (fokus ke dialog)
+                buttons: {
+                    "Oke Sip": function() {
+                        $(this).dialog("close");
+                    },
+                    "Tutup": function() {
+                        $(this).dialog("close");
+                    }
+                },
+                show: { effect: "fade", duration: 400 }, // Efek saat muncul
+                hide: { effect: "fade", duration: 400 }  // Efek saat ditutup
+            });
+
+            // Trigger untuk membuka dialog saat tombol diklik
+            $("#buka-dialog").on("click", function() {
+                $("#kotak-dialog").dialog("open");
+            });
+        });
+    </script>
+
+</body>
+</html>

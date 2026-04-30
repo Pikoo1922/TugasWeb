@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Password Modern</title>
+    <style>
+        /* Dasar Halaman */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Kontainer Form */
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1c1e21;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Grouping Input agar rapi (Mengganti <pre>) */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #606770;
+            font-weight: 600;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="password"]:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+            outline: none;
+        }
+
+        /* Tombol Proses */
+        .btn-submit {
+            width: 100%;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #166fe5;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Ganti Password</h2>
+        <form name="formtes">
+            <div class="input-group">
+                <label>Password Baru</label>
+                <input type="password" name="password_1" placeholder="Masukkan password baru">
+            </div>
+
+            <div class="input-group">
+                <label>Konfirmasi Password</label>
+                <input type="password" name="password_2" placeholder="Ulangi password baru">
+            </div>
+
+            <input type="button" class="btn-submit" value="Proses Perubahan" onclick="cekpassword()">
+        </form>
+    </div>
+
+    <script language="javascript">
+        function cekpassword() {
+            // Mengambil nilai dari form 'formtes'
+            var pw1 = document.formtes.password_1.value;
+            var pw2 = document.formtes.password_2.value;
+
+            if (pw1 == "" || pw2 == "") {
+                alert("Password tidak boleh kosong!");
+            } else if (pw1 != pw2) {
+                alert("Dua password yang Anda masukkan tidak sama"); 
+            } else {
+                alert("Password cocok! Mengalihkan...");
+                // window.location.href = "tesform.htm"; 
+            }
+        }
+    </script>
+</body>
+</html>

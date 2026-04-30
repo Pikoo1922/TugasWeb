@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Sederhana</title>
+    <link rel="icon" type="img/png" href="Gambar/images.jpg" sizes="16x16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <form action="/action_page.php" method="get" target="_self">
+        <label for="depan">Nama depan:</label><br>
+        <input type="text" id="depan" name="i_name" value="Budi"><br>
+        
+        <label for="n_belakang">Nama Belakang:</label><br>
+        <input type="text" id="n_belakang" name="i_belakan" value="Prawira"><br><br>
+
+        <input type="submit" value="Kirim">
+        <input type="reset" value="Reset">
+    </form>
+
+    <p>Jika Anda mengklik tombol "Kirim", data formulir akan dikirim ke halaman bernama "/action_page.php".</p>
+
+    <p>
+        <strong>Kesimpulan Ujicoba:</strong><br>
+        * **Tombol Reset**: Berfungsi untuk mengosongkan atau mengembalikan isi input ke nilai awal (default) yang ada pada atribut <code>value</code>.
+        * **Tombol Kirim**: Digunakan untuk mengirim data ke server melalui file yang ditentukan di atribut <code>action</code>.
+        * **Atribut Target**: Penggunaan <code>_blank</code> akan membuka hasil kiriman di tab baru, sedangkan <code>_self</code> di tab yang sama.
+        * **Method GET vs POST**: <code>method="get"</code> mengirim data melalui URL sehingga terlihat oleh pengguna, sedangkan <code>method="post"</code> mengirim data secara tertutup (tidak terlihat di URL).
+    </p>
+
+</body>
+</html>

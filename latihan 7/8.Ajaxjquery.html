@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Dasar AJAX & jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 40px;
+        }
+        .main-card {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .teori {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #1877f2;
+        }
+        .demo-box {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .btn {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #009475; }
+        .btn-blue { background: #0984e3; }
+        .btn-blue:hover { background: #0773c5; }
+        
+        #hasil-konten {
+            margin-top: 15px;
+            min-height: 50px;
+            border: 1px dashed #636e72;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <div class="header">
+        <h2>Penjelasan & Implementasi</h2>
+    </div>
+
+    <div class="teori" id="box-jquery">
+        <strong>Apa itu jQuery?</strong>
+        <p>jQuery adalah pustaka JavaScript yang menyederhanakan perintah rumit. Contohnya, tombol biru di bawah menggunakan fungsi <code>fadeToggle()</code> untuk menyembunyikan/menampilkan kotak penjelasan ini dengan halus.</p>
+    </div>
+
+    <div class="teori" id="box-ajax">
+        <strong>Apa itu AJAX?</strong>
+        <p>AJAX adalah teknik untuk memproses data di latar belakang. Halaman tidak perlu muat ulang (*refresh*) saat kita mengirim atau mengambil data baru. Ini membuat web terasa seperti aplikasi desktop.</p>
+    </div>
+
+    <div class="demo-box">
+        <h4>Panel Kendali (Tanpa API Luar)</h4>
+        
+        <button class="btn btn-blue" id="toggleTeori">Toggle Tampilan Teori</button>
+        
+        <button class="btn" id="loadData">Simulasi Ambil Data AJAX</button>
+
+        <div id="hasil-konten">
+            Menunggu perintah...
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    
+    // 1. Contoh jQuery: Animasi Toggle
+    $("#toggleTeori").click(function(){
+        $("#box-jquery, #box-ajax").fadeToggle(400);
+    });
+
+    // 2. Contoh AJAX: Simulasi pengambilan data lokal
+    $("#loadData").click(function(){
+        $("#hasil-konten").text("Sedang memproses data lokal...");
+
+        // Simulasi delay server selama 1 detik
+        setTimeout(function(){
+            const dataPalsu = {
+                nama: "Sistem Lokal",
+                status: "Berhasil",
+                pesan: "Data ini dimuat secara asinkron (AJAX) tanpa refresh halaman!"
+            };
+
+            // Menampilkan data ke HTML menggunakan jQuery
+            $("#hasil-konten").html(
+                `<strong style="color:#55efc4">Status: ${dataPalsu.status}</strong><br>` +
+                `${dataPalsu.pesan}`
+            );
+        }, 1000);
+    });
+
+});
+</script>
+
+</body>
+</html>

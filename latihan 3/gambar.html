@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Halaman Gambar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* CSS Sama agar tampilan konsisten */
+        * { box-sizing: border-box; }
+        body { font-family: Arial, Helvetica, sans-serif; margin: 0; }
+        header { background-color: #666; padding: 30px; text-align: center; font-size: 35px; color: white; }
+        nav { float: left; width: 30%; min-height: 450px; background: #ccc; padding: 20px; }
+        article { float: left; padding: 20px; width: 70%; background-color: #f1f1f1; min-height: 450px; }
+        nav ul { list-style-type: none; padding: 0; }
+        nav ul li { margin-bottom: 10px; }
+        section::after { content: ""; display: table; clear: both; }
+        footer { background-color: #777; padding: 10px; text-align: center; color: white; }
+
+        /* Style Khusus Galeri Gambar */
+        .container-gambar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .container-gambar img {
+            width: 100%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Judul Website</h2>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gambar.html">Gambar</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="audio.html">Audio</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="svg.html">SVG</a></li>
+            <li><a href="canvas.html">Canvas</a></li>
+            <li><a href="pendaftaran.html">Pendaftaran</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <h3>Gambar Random</h3>
+        <div class="container-gambar">
+            <img src="gambar'/download (1).png" alt="Gambar 1">
+            <img src="gambar'/download.png" alt="Gambar 2">
+            <img src="gambar'/images (1).jpg" alt="Gambar 3">
+            <img src="gambar'/images (2).jpg" alt="Gambar 4">
+            <img src="gambar'/images (3).jpg" alt="Gambar 5">
+            <img src="gambar'/images.jpg" alt="Gambar 6">
+        </div>
+        <hr>
+        <p><b>Kesimpulan:</b> Pembuatan galeri gambar menggunakan tag &lt;img&gt; di dalam container grid membuat tampilan lebih rapi dan profesional sesuai dengan permintaan instruksi.</p>
+        <p>Nama: [Ficko Daniar Fachryza Putra] | NIM: [253307043]</p>
+    </article>
+</section>
+
+<footer>
+    <p>Footer</p>
+</footer>
+
+</body>
+</html>

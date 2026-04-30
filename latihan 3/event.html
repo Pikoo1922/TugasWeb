@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Halaman Event</title>
+    <meta charset="utf-8">
+    <style>
+        /* CSS sama dengan sebelumnya */
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        header { background-color: #666; padding: 30px; text-align: center; color: white; }
+        nav { float: left; width: 30%; background: #ccc; padding: 20px; min-height: 450px; }
+        article { float: left; padding: 20px; width: 70%; background-color: #f1f1f1; min-height: 450px; }
+        section::after { content: ""; display: table; clear: both; }
+        footer { background-color: #777; padding: 10px; text-align: center; color: white; }
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .gallery img { width: 100%; transition: 0.3s; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header><h2>Judul Website</h2></header>
+   <section>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gambar.html">Gambar</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="audio.html">Audio</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="svg.html">SVG</a></li>
+            <li><a href="canvas.html">Canvas</a></li>
+            <li><a href="pendaftaran.html">Pendaftaran</a></li>
+        </ul>
+    </nav>
+        <article>
+            <h3>Mouse Event pada Gambar</h3>
+            <div class="gallery">
+                <img src="gambar'/WhatsApp Image 2026-03-02 at 10.16.25.jpeg" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="gambar'/WhatsApp Image 2026-03-02 at 10.16.26 (1).jpeg" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="gambar'/WhatsApp Image 2026-03-02 at 10.16.26 (2).jpeg" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <p><b>Kesimpulan:</b> Penambahan Mouse Event membuat elemen gambar menjadi interaktif terhadap kursor pengguna.</p>
+            <p>Nama: [Ficko Daniar Fachryza Putra] | NIM: [253307043]</p>
+        </article>
+    </section>
+    <footer><p>Footer</p></footer>
+</body>
+</html>

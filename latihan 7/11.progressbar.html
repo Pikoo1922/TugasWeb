@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Progress Bar - jQuery UI</title>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; padding-top: 100px; background: #f4f7f6; }
+        
+        /* Custom styling untuk label progress */
+        .progress-label {
+            position: absolute;
+            left: 50%;
+            top: 4px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 #fff;
+            transform: translateX(-50%);
+        }
+
+        #btn-download {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #btn-download:hover { background: #219150; }
+    </style>
+</head>
+<body>
+
+    <h2>Simulasi Download Manager</h2>
+    <button id="btn-download">Mulai Download File</button>
+
+    <div id="dialog-download" title="Sedang Mengunduh...">
+        <div class="progress-label">Menunggu...</div>
+        <div id="progressbar"></div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        var progressbar = $("#progressbar");
+        var progressLabel = $(".progress-label");
+        var dialogDownload = $("#dialog-download");
+
+        // 1. Inisialisasi Dialog
+        dialogDownload.dialog({
+            autoOpen: false,
+            closeOnEscape: false,
+            resizable: false,
+            modal: true,
+            buttons: {
+                "Batal": function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        // 2. Inisialisasi Progressbar
+        progressbar.progressbar({
+            value: false,
+            change: function() {
+                progressLabel.text(progressbar.progressbar("value") + "%");
+            },
+            complete: function() {
+                progressLabel.text("Selesai!");
+                dialogDownload.dialog("option", "buttons", [{
+                    text: "Tutup",
+                    click: function() { $(this).dialog("close"); }
+                }]);
+            }
+        });
+
+        // 3. Fungsi untuk simulasi proses download
+        function mulaiDownload() {
+            var val = progressbar.progressbar("value") || 0;
+            
+            // Tambahkan nilai progress secara acak
+            progressbar.progressbar("value", val + Math.floor(Math.random() * 5));
+
+            if (val < 99) {
+                setTimeout(mulaiDownload, 100);
+            }
+        }
+
+        // Trigger Tombol
+        $("#btn-download").on("click", function() {
+            // Reset state
+            progressbar.progressbar("value", 0);
+            progressLabel.text("Memulai...");
+            
+            // Buka dialog dan jalankan fungsi
+            dialogDownload.dialog("open");
+            mulaiDownload();
+        });
+    });
+    </script>
+
+</body>
+</html>

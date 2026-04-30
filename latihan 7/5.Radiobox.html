@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Box Modern</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        label:hover {
+            background-color: #f0f0f0;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #2ecc71; /* Warna hijau saat dipilih */
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+
+        .info-section {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+            box-sizing: border-box;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Pilih musik favorit Anda:</h3>
+        <form name="formtes">
+            <div class="radio-group">
+                <label><input type="radio" name="radiomusik" value="Jazz" onclick="info()"> Jazz</label>
+                <label><input type="radio" name="radiomusik" value="Keroncong" onclick="info()"> Keroncong</label>
+                <label><input type="radio" name="radiomusik" value="Dangdut" onclick="info()"> Dangdut</label>
+                <label><input type="radio" name="radiomusik" value="Lainnya" onclick="info()"> Lainnya</label>
+            </div>
+            
+            <hr>
+            
+            <div class="info-section">
+                Info Pilihan:
+                <input type="text" name="fieldmusik" readonly placeholder="Belum ada pilihan">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function info() {
+            // Loop untuk mengecek setiap pilihan radio [cite: 189-191]
+            for (var i = 0; i < document.formtes.radiomusik.length; i++) {
+                if (document.formtes.radiomusik[i].checked) {
+                    // Menampilkan nilai radio yang terpilih ke field text [cite: 190-191]
+                    document.formtes.fieldmusik.value = "Anda menyukai " + document.formtes.radiomusik[i].value;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

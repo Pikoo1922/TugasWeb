@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Pseudo-class</title>
+    <style>
+        /* Mengatur tampilan dasar tombol */
+        .tombol {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s; /* Agar perubahan warna halus */
+        }
+
+        /* 1. :hover - Berubah saat kursor di atas elemen */
+        .tombol:hover {
+            background-color: #45a049;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
+        }
+
+        /* 2. :active - Berubah saat elemen diklik/ditekan */
+        .tombol:active {
+            background-color: #3e8e41;
+            transform: translateY(4px);
+        }
+
+        /* 3. :nth-child - Memilih urutan tertentu */
+        /* Memberi warna berbeda pada baris genap di tabel/list */
+        li:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        li {
+            padding: 10px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Contoh Pseudo-class</h2>
+    
+    <button class="tombol">Arahkan Mouse ke Sini!</button>
+
+    <h3>Daftar Belajar (nth-child even):</h3>
+    <ul>
+        <li>1. Belajar HTML</li>
+        <li>2. Belajar CSS Dasar</li>
+        <li>3. Belajar Selector</li>
+        <li>4. Belajar Pseudo-class</li>
+    </ul>
+
+</body>
+</html>

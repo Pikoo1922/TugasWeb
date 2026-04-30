@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Halaman Pendaftaran - Ficko</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ficko Daniar Fachryza Putra">
+    <meta name="nim" content="253307043">
+    <style>
+        /* CSS Konsisten sesuai Screenshot 2026-03-02 093920.png */
+        * { box-sizing: border-box; }
+        body { font-family: Arial, Helvetica, sans-serif; margin: 0; }
+        header { background-color: #666; padding: 30px; text-align: center; font-size: 35px; color: white; }
+        nav { float: left; width: 30%; background: #ccc; padding: 20px; min-height: 600px; }
+        nav ul { list-style-type: none; padding: 0; }
+        nav ul li { margin-bottom: 10px; }
+        article { float: left; padding: 20px; width: 70%; background-color: #f1f1f1; min-height: 600px; }
+        section::after { content: ""; display: table; clear: both; }
+        footer { background-color: #777; padding: 10px; text-align: center; color: white; clear: both; }
+        
+        /* Styling tambahan untuk Form agar rapi seperti Gambar 9 */
+        fieldset { border: 1px solid #999; margin-bottom: 20px; padding: 15px; }
+        legend { font-weight: bold; }
+        label { display: inline-block; width: 150px; margin-bottom: 10px; }
+        input[type="text"], input[type="tel"], input[type="email"], input[type="date"], input[type="time"] {
+            margin-bottom: 10px; padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Judul Website</h2>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gambar.html">Gambar</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="audio.html">Audio</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="svg.html">SVG</a></li>
+            <li><a href="canvas.html">Canvas</a></li>
+            <li><a href="pendaftaran.html">Pendaftaran</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <h1>Form Penjadwal Pertemuan</h1>
+        
+        <form action="#">
+            <fieldset>
+                <legend>Informasi Pribadi</legend>
+                
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" required><br>
+
+                <label for="telp">No. Telepon</label>
+                <input type="tel" id="telp" name="telp" pattern="[0-9]{4}-[0-9]{6,}" placeholder="0812-123456" required><br>
+
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" name="email" placeholder="nama@domain.com" required><br>
+
+                <label for="lahir">Tanggal Lahir</label>
+                <input type="date" id="lahir" name="lahir" min="1987-01-01" max="1993-01-01" required><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Permintaan Pertemuan</legend>
+
+                <label for="tujuan">Tujuan Pertemuan</label>
+                <input type="text" id="tujuan" name="tujuan" required><br>
+
+                <label for="level">Tingkat Kepentingan</label>
+                <span>Tidak Penting (0)</span>
+                <input type="range" id="level" name="level" min="0" max="10" value="5">
+                <span>Mendesak (10)</span><br>
+
+                <label for="tgl_temu">Tanggal</label>
+                <input type="date" id="tgl_temu" name="tgl_temu" required><br>
+
+                <label for="waktu">Waktu (WIB)</label>
+                <input type="time" id="waktu" name="waktu" min="17:00" max="21:00" required><br>
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <hr>
+        <p><b>Kesimpulan:</b> Penggunaan atribut validasi pada HTML5 seperti <code>pattern</code>, <code>min</code>, <code>max</code>, dan tipe input khusus (email/tel) memudahkan pengelolaan data input tanpa harus bergantung sepenuhnya pada JavaScript. Hal ini meningkatkan pengalaman pengguna dan keamanan data dasar.</p>
+        <p>Nama: [Ficko Daniar Fachryza Putra]<br>NIM: [253307043]</p>
+    </article>
+</section>
+
+<footer>
+    <p>Footer</p>
+</footer>
+
+<script>
+    // Script untuk memastikan tanggal pertemuan harus di atas hari ini
+    var today = new Date();
+    var tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var dd = String(tomorrow.getDate()).padStart(2, '0');
+    var mm = String(tomorrow.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = tomorrow.getFullYear();
+    var minDate = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('tgl_temu').setAttribute('min', minDate);
+</script>
+
+</body>
+</html>
